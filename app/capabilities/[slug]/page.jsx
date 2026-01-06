@@ -15,9 +15,7 @@ const CONTENT = {
       "Accounting, discovery of assets, and asset recovery",
       "Forced heirship and legitime claims",
     ],
-    WhatIsIt: [
-        "blah blah blah"
-    ],
+    WhatIsIt: ["blah blah blah"],
     faq: [
       {
         q: "How long do probate disputes take?",
@@ -41,7 +39,7 @@ const CONTENT = {
       "Succession avoidance and tax-efficient transfers",
     ],
     WhatIsIt: [
-        "When you have significant assets built over generations or during your lifetime, it is essential to consider how best to protect your individual or family legacy when you are no longer capable or you pass away. Without an estate plan, your family stands to experience disputes, frustrating delays and even significant loss of assets. Estate planning gives you the control to choose an executor for administering your estate in your will. The legal instruments in your estate plan give you the power to select trusted agents to ensure your wishes for end- f life medical treatment are clearly and legally expressed to your physician while you are alive in advance directives. At minimum, most estate plans comprise powers of attorney, advance directives and a will. Many estates benefit from the creation of a trust. The Logan Law Firm, LLC, creates your estate plan based on your unique circumstances. Each family has different needs. Attorney Gregory J. Logan provides the information you need to make careful choices about setting up your estate plan with the least amount of confusion and tax burden for your family."
+      "When you have significant assets built over generations or during your lifetime, it is essential to consider how best to protect your individual or family legacy when you are no longer capable or you pass away. Without an estate plan, your family stands to experience disputes, frustrating delays and even significant loss of assets. Estate planning gives you the control to choose an executor for administering your estate in your will. The legal instruments in your estate plan give you the power to select trusted agents to ensure your wishes for end-of-life medical treatment are clearly and legally expressed to your physician while you are alive in advance directives. At minimum, most estate plans comprise powers of attorney, advance directives and a will. Many estates benefit from the creation of a trust. The Logan Law Firm, LLC, creates your estate plan based on your unique circumstances. Each family has different needs. Attorney Gregory J. Logan provides the information you need to make careful choices about setting up your estate plan with the least amount of confusion and tax burden for your family.",
     ],
     faq: [
       {
@@ -61,9 +59,7 @@ const CONTENT = {
       "Oppositions to executors or administrators",
       "Settlement strategy and mediation",
     ],
-    WhatIsIt: [
-        "blah blah blah"
-    ],
+    WhatIsIt: ["blah blah blah"],
   },
 
   "asset-protection": {
@@ -76,20 +72,35 @@ const CONTENT = {
       "Insurance alignment with legal structure",
       "Business continuity and succession planning",
     ],
-    WhatIsIt: [
-        "blah blah blah"
-    ],
+    WhatIsIt: ["blah blah blah"],
   },
 
   // Add entries for each slug you listed…
 };
+
+/**
+ * ✅ REQUIRED for `output: "export"`
+ * Next needs to know every dynamic route to pre-render at build time.
+ */
+export function generateStaticParams() {
+  return Object.keys(CONTENT).map((slug) => ({ slug }));
+}
+
+/**
+ * Optional but recommended for export:
+ * any slug not returned by generateStaticParams should 404.
+ * If you prefer to keep your "Coming Soon" fallback for unknown slugs,
+ * you can remove this line.
+ */
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }) {
   const data = CONTENT[params.slug];
   if (!data) {
     return {
       title: "Capabilities | Logan Law Firm, LLC",
-      description: "Explore our capabilities across probate, successions, estate planning, and more.",
+      description:
+        "Explore our capabilities across probate, successions, estate planning, and more.",
     };
   }
   return {
@@ -103,14 +114,20 @@ export default function CapabilityDetailPage({ params }) {
 
   if (!data) {
     // Graceful fallback for slugs not added yet
+    // NOTE: If dynamicParams=false, this block will not be reachable in export builds.
     return (
       <>
         <Header />
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="text-2xl font-semibold text-[#2c3b4c]">Page Coming Soon</h1>
+          <h1 className="text-2xl font-semibold text-[#2c3b4c]">
+            Page Coming Soon
+          </h1>
           <p className="mt-3 text-slate-600">
             We’re writing this page. In the meantime, please{" "}
-            <Link href="/#contact" className="underline text-[#2c3b4c]">contact us</Link>.
+            <Link href="/#contact" className="underline text-[#2c3b4c]">
+              contact us
+            </Link>
+            .
           </p>
           <p className="mt-8">
             <Link href="/capabilities" className="text-sm underline text-slate-600">
@@ -153,20 +170,22 @@ export default function CapabilityDetailPage({ params }) {
             </>
           ) : null}
 
-           {data.WhatIsIt?.length ? (
+          {data.WhatIsIt?.length ? (
             <>
               <h3 className="mt-10 text-xl font-semibold text-[#2c3b4c]">Why</h3>
-              <ul className="mt-4 grid gap-2 text-slate-700">
-                {data.WhatIsIt.map((b, i) => (
-                     <p className="mt-3 text-slate-700 max-w-3xl">{data.WhatIsIt}</p>
+              <div className="mt-4 space-y-3 text-slate-700 max-w-3xl">
+                {data.WhatIsIt.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
                 ))}
-              </ul>
+              </div>
             </>
           ) : null}
 
           {data.faq?.length ? (
             <>
-              <h4 className="mt-10 text-lg font-semibold text-[#2c3b4c]">Frequently Asked Questions</h4>
+              <h4 className="mt-10 text-lg font-semibold text-[#2c3b4c]">
+                Frequently Asked Questions
+              </h4>
               <div className="mt-4 space-y-4">
                 {data.faq.map((f, i) => (
                   <details key={i} className="group rounded-lg border bg-white p-4">
