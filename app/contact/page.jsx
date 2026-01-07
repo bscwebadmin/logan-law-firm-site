@@ -34,11 +34,8 @@ export default function ContactPage() {
           {/* Left: Contact Form */}
           <div>
             <h2 className="text-2xl font-semibold text-[#2c3b4c] mb-4">Send Us a Message</h2>
-           <form
-  action="https://formspree.io/f/xrebnkld"
-  method="POST"
-  className="grid grid-cols-1 gap-4"
->
+            
+<form action="https://formspree.io/f/xrebnkld" method="POST" className="grid grid-cols-1 gap-4">
   <input
     type="text"
     name="name"
