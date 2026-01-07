@@ -75,22 +75,8 @@ export default function HeroRotating() {
             successions, estate planning, and complex disputes across Louisiana.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3 justify-end">
-            <Link
-              href="#contact"
-              className="inline-flex items-center rounded-full bg-[#2c3b4c] px-5 py-3 text-white font-semibold shadow hover:opacity-95 transition"
-            >
-              Schedule a Consultation
-            </Link>
-            <Link
-              href="/contact?type=local-counsel"
-              className="inline-flex items-center rounded-full border border-white/50 px-5 py-3 text-white hover:bg-white/10 transition"
-            >
-              Local Counsel
-            </Link>
-          </div>
 
-          
+
         </div>
       </div>
 

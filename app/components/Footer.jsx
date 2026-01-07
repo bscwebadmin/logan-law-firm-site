@@ -63,7 +63,7 @@ export default function Footer() {
             </div>
 
             {/* Review button + Social */}
-            
+
 
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function Footer() {
 
       {/* ===== COPYRIGHT STRIP ===== */}
       <div className="bg-[#2c3b4c] text-gray-300 text-sm text-center py-4">
-        © {new Date().getFullYear()} Logan Law Firm, LLC · All Rights Reserved
+        © {new Date().getFullYear()} Logan Law Firm, LLC · All Rights Reserved | Managed by <a href="https://burningstickcreative.com/" target="_blank">Burning Stick Creative</a>
       </div>
     </footer>
   );
