@@ -77,37 +77,56 @@ export default function LoganStarterPage() {
         </p>
 
         {/* Contact form */}
-        <form action="/api/contact" method="POST" className="mt-6 space-y-4">
-          <input
-            name="name"
-            placeholder="Name"
-            className="w-full bg-transparent text-slate-100 placeholder-slate-300/80 border border-slate-500/60 focus:border-slate-200 focus:ring-2 focus:ring-slate-300/40 rounded px-3 py-2 outline-none"
-          />
-          <input
-            name="email"
-            placeholder="Email*"
-            required
-            type="email"
-            className="w-full bg-transparent text-slate-100 placeholder-slate-300/80 border border-slate-500/60 focus:border-slate-200 focus:ring-2 focus:ring-slate-300/40 rounded px-3 py-2 outline-none"
-          />
-          <input
-            name="phone"
-            placeholder="Phone"
-            className="w-full bg-transparent text-slate-100 placeholder-slate-300/80 border border-slate-500/60 focus:border-slate-200 focus:ring-2 focus:ring-slate-300/40 rounded px-3 py-2 outline-none"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows={5}
-            className="w-full bg-transparent text-slate-100 placeholder-slate-300/80 border border-slate-500/60 focus:border-slate-200 focus:ring-2 focus:ring-slate-300/40 rounded px-3 py-2 outline-none"
-          />
-          <button
-            type="submit"
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded bg-slate-200 text-slate-900 font-semibold hover:bg-white transition"
-          >
-            Send
-          </button>
-        </form>
+       <form
+  action="https://formspree.io/f/xrebnkld"
+  method="POST"
+  className="grid grid-cols-1 gap-4"
+>
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Email Address"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  <input
+    type="tel"
+    name="phone"
+    placeholder="Phone Number"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  <textarea
+    name="message"
+    rows="5"
+    placeholder="How can we help you?"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  {/* Optional but recommended */}
+  <input type="hidden" name="_subject" value="New Website Inquiry" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="text" name="_gotcha" style={{ display: "none" }} />
+
+  <button
+    type="submit"
+    className="bg-[#2c3b4c] text-white font-semibold py-3 rounded-lg hover:opacity-90 transition"
+  >
+    Send Message
+  </button>
+</form>
+
       </div>
     </div>
 
