@@ -34,38 +34,56 @@ export default function ContactPage() {
           {/* Left: Contact Form */}
           <div>
             <h2 className="text-2xl font-semibold text-[#2c3b4c] mb-4">Send Us a Message</h2>
-            <form className="grid grid-cols-1 gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
-              />
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="How can we help you?"
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
-              />
-              <button
-                type="submit"
-                className="bg-[#2c3b4c] text-white font-semibold py-3 rounded-lg hover:opacity-90 transition"
-              >
-                Send Message
-              </button>
-            </form>
+           <form
+  action="https://formspree.io/f/xrebnkld"
+  method="POST"
+  className="grid grid-cols-1 gap-4"
+>
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Email Address"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  <input
+    type="tel"
+    name="phone"
+    placeholder="Phone Number"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  <textarea
+    name="message"
+    rows="5"
+    placeholder="How can we help you?"
+    required
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+  />
+
+  {/* Optional but recommended */}
+  <input type="hidden" name="_subject" value="New Website Inquiry" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="text" name="_gotcha" style={{ display: "none" }} />
+
+  <button
+    type="submit"
+    className="bg-[#2c3b4c] text-white font-semibold py-3 rounded-lg hover:opacity-90 transition"
+  >
+    Send Message
+  </button>
+</form>
+
           </div>
 
           {/* Right: Office Info */}
