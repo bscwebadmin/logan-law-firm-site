@@ -95,7 +95,7 @@ export default function LoganStarterPage() {
     name="email"
     placeholder="Email Address"
     required
-    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c] placeholder:text-black"
   />
 
   <input
@@ -103,7 +103,7 @@ export default function LoganStarterPage() {
     name="phone"
     placeholder="Phone Number"
     required
-    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c] placeholder:text-black"
   />
 
   <textarea
@@ -111,7 +111,7 @@ export default function LoganStarterPage() {
     rows="5"
     placeholder="How can we help you?"
     required
-    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c] placeholder:text-black"
   />
 
   {/* Optional but recommended */}
