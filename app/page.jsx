@@ -87,7 +87,7 @@ export default function LoganStarterPage() {
     name="name"
     placeholder="Your Name"
     required
-    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c] placeholder:ring-[#000]"
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c] placeholder:text-black"
   />
 
   <input
