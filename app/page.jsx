@@ -9,14 +9,14 @@ import CredentialsShowcase from "./components/CredentialsShowcase";
 import HeroRotating from "./components/HeroRotating";
 
 
-//#2c3b4c navy color used 
+//#2c3b4c navy color used
 //#0d1b2a] darker navy color used
 export default function LoganStarterPage() {
  return (
     <>
-      <Header /> 
+      <Header />
 
-     
+
   <main>
   {/* HERO SECTION */}
  <section className="relative isolate">
@@ -29,7 +29,7 @@ export default function LoganStarterPage() {
 <Generations />
 
 {/* Credentials SECTION */}
-<CredentialsShowcase /> 
+<CredentialsShowcase />
 
 
 {/* Clients SECTION */}
@@ -87,7 +87,7 @@ export default function LoganStarterPage() {
     name="name"
     placeholder="Your Name"
     required
-    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c]"
+    className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2c3b4c] placeholder:ring-[#000]"
   />
 
   <input
@@ -144,7 +144,7 @@ export default function LoganStarterPage() {
 </section>
 </main>
 
-<Footer />   
+<Footer />
 
     </>
   );
