@@ -1,7 +1,7 @@
 source: /
 paths:
-  uploads: uploads
-  static: out
+  uploads: /uploads
+  static: /out
 collections_config:
   pages:
     path: app
