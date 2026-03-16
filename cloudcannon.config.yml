@@ -1,8 +1,148 @@
-_schema: _schema
-source: /  
+source: /
 paths:
   uploads: uploads
   static: out
+collections_config:
+  pages:
+    path: app
+    icon: wysiwyg
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  capabilities:
+    path: app/capabilities
+    icon: analytics
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  components:
+    path: app/components
+    icon: comment
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  contact:
+    path: app/contact
+    icon: contacts
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  people:
+    path: app/people
+    icon: female
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_asset_protection:
+    path: app/practice/asset-protection
+    icon: data_loss_prevention
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_business_transactions:
+    path: app/practice/business-transactions
+    icon: masked_transitions
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_casualty_litigation:
+    path: app/practice/casualty-litigation
+    icon: assistant_navigation
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_contested_successions:
+    path: app/practice/contested-successions
+    icon: battery_android_question
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_estate_planning:
+    path: app/practice/estate-planning
+    icon: real_estate_agent
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_guardianship_litigation_admin:
+    path: app/practice/guardianship-litigation-admin
+    icon: emoji_transportation
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_last_will_trust:
+    path: app/practice/last-will-trust
+    icon: nest_cam_wall_mount
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_life_insurance_trust:
+    path: app/practice/life-insurance-trust
+    icon: picture_in_picture_alt
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_litigation_dispute_resolution:
+    path: app/practice/litigation-dispute-resolution
+    icon: integration_instructions
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_living_trust:
+    path: app/practice/living-trust
+    icon: patient_list
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_probate_litigation:
+    path: app/practice/probate-litigation
+    icon: pause_presentation
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_succession_litigation:
+    path: app/practice/succession-litigation
+    icon: pause_presentation
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_tax:
+    path: app/practice/tax
+    icon: traffic_jam
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  practice_undue_influence:
+    path: app/practice/undue-influence
+    icon: account_balance
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  resources:
+    path: app/resources
+    icon: gesture
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 timezone: America/Chicago
 markdown:
   engine: commonmark
