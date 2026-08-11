@@ -1,0 +1,229 @@
+diff --git a/.gitignore b/.gitignore
+index a227da8..8435dd3 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,5 +1,6 @@
+ node_modules
+ .next
++out
+ .env
+ .env.local
+ dist
+diff --git a/app/components/Footer.jsx b/app/components/Footer.jsx
+index 5fba6e4..e13c159 100644
+--- a/app/components/Footer.jsx
++++ b/app/components/Footer.jsx
+@@ -1,8 +1,9 @@
+ "use client";
+ 
+ import Link from "next/link";
++import company from "../../data/company.json";
+ 
+-
++const telHref = "tel:1" + company.phone.replace(/\D/g, "");
+ 
+ export default function Footer() {
+   return (
+@@ -32,10 +33,10 @@ export default function Footer() {
+                 <div>
+                   <div className="font-semibold text-slate-800">Address</div>
+                   <div className="text-slate-600">
+-                    700 Jefferson St.<br />Lafayette, LA 70501
++                    {company.address.street}<br />{company.address.city}, {company.address.state} {company.address.zip}
+                   </div>
+                   <a
+-                    href="https://maps.google.com/?q=700+Jefferson+St+Lafayette+LA+70501"
++                    href={company.map_link}
+                     target="_blank"
+                     rel="noreferrer"
+                     className="text-[#0d1b2a] underline mt-1 inline-block"
+@@ -55,8 +56,8 @@ export default function Footer() {
+                 </svg>
+                 <div>
+                   <div className="font-semibold text-slate-800">Phone</div>
+-                  <a href="tel:13372834008" className="text-[#0d1b2a] underline block">
+-                    337-406-9685
++                  <a href={telHref} className="text-[#0d1b2a] underline block">
++                    {company.phone}
+                   </a>
+                 </div>
+               </div>
+@@ -71,7 +72,7 @@ export default function Footer() {
+ 
+       {/* ===== COPYRIGHT STRIP ===== */}
+       <div className="bg-[#2c3b4c] text-gray-300 text-sm text-center py-4">
+-        © {new Date().getFullYear()} Logan Law Firm, LLC · All Rights Reserved | Managed by <a href="https://burningstickcreative.com/" target="_blank">Burning Stick Creative</a>
++        © {new Date().getFullYear()} {company.name} · All Rights Reserved | Managed by <a href={company.managed_by.url} target="_blank">{company.managed_by.name}</a>
+       </div>
+     </footer>
+   );
+diff --git a/app/contact/page.jsx b/app/contact/page.jsx
+index 9617ee6..f8ace89 100644
+--- a/app/contact/page.jsx
++++ b/app/contact/page.jsx
+@@ -1,5 +1,8 @@
+ import Header from "../components/Header";
+ import Footer from "../components/Footer";
++import company from "../../data/company.json";
++
++const telHref = "tel:1" + company.phone.replace(/\D/g, "");
+ 
+ export const metadata = {
+   title: "Contact | Logan Law Firm, LLC",
+@@ -87,17 +90,17 @@ export default function ContactPage() {
+           <div className="bg-[#f8f9fb] p-8 rounded-lg shadow-md">
+             <h3 className="text-xl font-semibold text-[#2c3b4c] mb-3">Our Office</h3>
+             <p className="text-slate-700 mb-4">
+-              <strong>Logan Law Firm, LLC</strong><br />
+-              700 Jefferson Street<br />
+-              Lafayette, Louisiana 70501
++              <strong>{company.name}</strong><br />
++              {company.address.street}<br />
++              {company.address.city}, {company.address.state} {company.address.zip}
+             </p>
+             <p className="text-slate-700 mb-4">
+-              Phone: <a href="tel:13372834008" className="underline hover:text-[#2c3b4c]">337-306-9685</a><br />
+-              Email: <a href="mailto:info@loganfirm.com" className="underline hover:text-[#2c3b4c]">kat@loganfirm.com</a>
++              Phone: <a href={telHref} className="underline hover:text-[#2c3b4c]">{company.phone}</a><br />
++              Email: <a href={`mailto:${company.email}`} className="underline hover:text-[#2c3b4c]">{company.email}</a>
+             </p>
+             <iframe
+-              title="Logan Law Firm Location"
+-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.688821548627!2d-92.016476!3d30.224089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86249cc5a0ffce65%3A0x3bcd3da8d42d7b5e!2s700%20Jefferson%20St%2C%20Lafayette%2C%20LA%2070501!5e0!3m2!1sen!2sus!4v1707840000000!5m2!1sen!2sus"
++              title={`${company.name} Location`}
++              src={company.map_embed_url}
+               width="100%"
+               height="250"
+               allowFullScreen=""
+diff --git a/app/layout.jsx b/app/layout.jsx
+index be7adc8..4daa7df 100644
+--- a/app/layout.jsx
++++ b/app/layout.jsx
+@@ -1,8 +1,9 @@
+ import "../styles/globals.css";
++import company from "../data/company.json";
+ 
+ export const metadata = {
+-  title: "Logan Law Firm, LLC",
+-  description: "Louisiana Probate, Succession & Estate Litigation",
++  title: company.name,
++  description: company.tagline,
+ };
+ 
+ export default function RootLayout({ children }) {
+diff --git a/app/people/page.jsx b/app/people/page.jsx
+index 9a9d35e..546298d 100644
+--- a/app/people/page.jsx
++++ b/app/people/page.jsx
+@@ -1,7 +1,8 @@
+ // app/contact/page.jsx
+ import Link from "next/link";
+-import Header from "../components/Header"; 
++import Header from "../components/Header";
+ import Footer from "../components/Footer";
++import company from "../../data/company.json";
+ 
+ 
+ export const metadata = {
+@@ -48,7 +49,7 @@ export default function PeoplePage() {
+                 Gregory J. Logan
+               </h2>
+               <a
+-                href="mailto:kat@loganfirm.com"
++                href={`mailto:${company.email}`}
+                 className="inline-block bg-[#27466b] text-white px-5 py-2 rounded hover:opacity-90 transition"
+               >
+                 Email Me
+@@ -138,7 +139,7 @@ export default function PeoplePage() {
+                 Gregory Jesse Logan, Jr.
+               </h2>
+               <a
+-                href="mailto:kat@loganfirm.com"
++                href={`mailto:${company.email}`}
+                 className="inline-block bg-[#27466b] text-white px-5 py-2 rounded hover:opacity-90 transition"
+               >
+                 Email Me
+diff --git a/app/safe copy.html b/app/safe copy.html
+index e2335b7..dad48dd 100644
+--- a/app/safe copy.html	
++++ b/app/safe copy.html	
+@@ -325,7 +325,7 @@ export default function LoganStarterPage() {
+           </svg>
+           <div>
+             <div className="font-semibold text-slate-800">Phone</div>
+-            <a href="tel:13372834008" className="text-[#0d1b2a] underline block">337-283-4008</a>
++            <a href="tel:13374069685" className="text-[#0d1b2a] underline block">337-406-9685</a>
+           </div>
+         </div>
+       </div>
+diff --git a/cloudcannon.config.yml b/cloudcannon.config.yml
+index 0e7321e..d4e018a 100755
+--- a/cloudcannon.config.yml
++++ b/cloudcannon.config.yml
+@@ -143,6 +143,42 @@ collections_config:
+     disable_add: false
+     disable_add_folder: false
+     disable_file_actions: false
++data_config:
++  company:
++    path: data/company.json
++    icon: business
++    disable_add: true
++    disable_add_folder: true
++    disable_file_actions: true
++_inputs:
++  name:
++    type: text
++    label: Company Name
++  tagline:
++    type: text
++    label: Tagline
++    comment: Used as the site's default meta description.
++  phone:
++    type: text
++    label: Phone Number
++    comment: Shown in the footer and contact page. Format 337-406-9685 — the tel link is built from it automatically.
++  email:
++    type: email
++    label: Contact Email
++    comment: Used for all mailto links on the site.
++  address:
++    type: object
++    label: Office Address
++  map_link:
++    type: url
++    label: Google Maps Link
++  map_embed_url:
++    type: url
++    label: Google Maps Embed URL
++    comment: The src URL of the map iframe on the contact page.
++  managed_by:
++    type: object
++    label: Site Credit
+ timezone: America/Chicago
+ markdown:
+   engine: commonmark
+diff --git a/data/company.json b/data/company.json
+new file mode 100644
+index 0000000..b55a3a9
+--- /dev/null
++++ b/data/company.json
+@@ -0,0 +1,18 @@
++{
++  "name": "Logan Law Firm, LLC",
++  "tagline": "Louisiana Probate, Succession & Estate Litigation",
++  "phone": "337-406-9685",
++  "email": "kat@loganfirm.com",
++  "address": {
++    "street": "700 Jefferson St.",
++    "city": "Lafayette",
++    "state": "LA",
++    "zip": "70501"
++  },
++  "map_link": "https://maps.google.com/?q=700+Jefferson+St+Lafayette+LA+70501",
++  "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.688821548627!2d-92.016476!3d30.224089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86249cc5a0ffce65%3A0x3bcd3da8d42d7b5e!2s700%20Jefferson%20St%2C%20Lafayette%2C%20LA%2070501!5e0!3m2!1sen!2sus!4v1707840000000!5m2!1sen!2sus",
++  "managed_by": {
++    "name": "Burning Stick Creative",
++    "url": "https://burningstickcreative.com/"
++  }
++}
