@@ -143,6 +143,42 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+data_config:
+  company:
+    path: data/company.json
+    icon: business
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: true
+_inputs:
+  name:
+    type: text
+    label: Company Name
+  tagline:
+    type: text
+    label: Tagline
+    comment: Used as the site's default meta description.
+  phone:
+    type: text
+    label: Phone Number
+    comment: Shown in the footer and contact page. Format 337-406-9685 — the tel link is built from it automatically.
+  email:
+    type: email
+    label: Contact Email
+    comment: Used for all mailto links on the site.
+  address:
+    type: object
+    label: Office Address
+  map_link:
+    type: url
+    label: Google Maps Link
+  map_embed_url:
+    type: url
+    label: Google Maps Embed URL
+    comment: The src URL of the map iframe on the contact page.
+  managed_by:
+    type: object
+    label: Site Credit
 timezone: America/Chicago
 markdown:
   engine: commonmark

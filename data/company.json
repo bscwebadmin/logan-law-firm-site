@@ -1,0 +1,18 @@
+{
+  "name": "Logan Law Firm, LLC",
+  "tagline": "Louisiana Probate, Succession & Estate Litigation",
+  "phone": "337-406-9685",
+  "email": "kat@loganfirm.com",
+  "address": {
+    "street": "700 Jefferson St.",
+    "city": "Lafayette",
+    "state": "LA",
+    "zip": "70501"
+  },
+  "map_link": "https://maps.google.com/?q=700+Jefferson+St+Lafayette+LA+70501",
+  "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.688821548627!2d-92.016476!3d30.224089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86249cc5a0ffce65%3A0x3bcd3da8d42d7b5e!2s700%20Jefferson%20St%2C%20Lafayette%2C%20LA%2070501!5e0!3m2!1sen!2sus!4v1707840000000!5m2!1sen!2sus",
+  "managed_by": {
+    "name": "Burning Stick Creative",
+    "url": "https://burningstickcreative.com/"
+  }
+}

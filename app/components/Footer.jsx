@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import company from "../../data/company.json";
 
-
+const telHref = "tel:1" + company.phone.replace(/\D/g, "");
 
 export default function Footer() {
   return (
@@ -32,10 +33,10 @@ export default function Footer() {
                 <div>
                   <div className="font-semibold text-slate-800">Address</div>
                   <div className="text-slate-600">
-                    700 Jefferson St.<br />Lafayette, LA 70501
+                    {company.address.street}<br />{company.address.city}, {company.address.state} {company.address.zip}
                   </div>
                   <a
-                    href="https://maps.google.com/?q=700+Jefferson+St+Lafayette+LA+70501"
+                    href={company.map_link}
                     target="_blank"
                     rel="noreferrer"
                     className="text-[#0d1b2a] underline mt-1 inline-block"
@@ -55,8 +56,8 @@ export default function Footer() {
                 </svg>
                 <div>
                   <div className="font-semibold text-slate-800">Phone</div>
-                  <a href="tel:13372834008" className="text-[#0d1b2a] underline block">
-                    337-406-9685
+                  <a href={telHref} className="text-[#0d1b2a] underline block">
+                    {company.phone}
                   </a>
                 </div>
               </div>
@@ -71,7 +72,7 @@ export default function Footer() {
 
       {/* ===== COPYRIGHT STRIP ===== */}
       <div className="bg-[#2c3b4c] text-gray-300 text-sm text-center py-4">
-        © {new Date().getFullYear()} Logan Law Firm, LLC · All Rights Reserved | Managed by <a href="https://burningstickcreative.com/" target="_blank">Burning Stick Creative</a>
+        © {new Date().getFullYear()} {company.name} · All Rights Reserved | Managed by <a href={company.managed_by.url} target="_blank">{company.managed_by.name}</a>
       </div>
     </footer>
   );

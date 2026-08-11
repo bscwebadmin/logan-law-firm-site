@@ -1,5 +1,8 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import company from "../../data/company.json";
+
+const telHref = "tel:1" + company.phone.replace(/\D/g, "");
 
 export const metadata = {
   title: "Contact | Logan Law Firm, LLC",
@@ -87,17 +90,17 @@ export default function ContactPage() {
           <div className="bg-[#f8f9fb] p-8 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold text-[#2c3b4c] mb-3">Our Office</h3>
             <p className="text-slate-700 mb-4">
-              <strong>Logan Law Firm, LLC</strong><br />
-              700 Jefferson Street<br />
-              Lafayette, Louisiana 70501
+              <strong>{company.name}</strong><br />
+              {company.address.street}<br />
+              {company.address.city}, {company.address.state} {company.address.zip}
             </p>
             <p className="text-slate-700 mb-4">
-              Phone: <a href="tel:13372834008" className="underline hover:text-[#2c3b4c]">337-306-9685</a><br />
-              Email: <a href="mailto:info@loganfirm.com" className="underline hover:text-[#2c3b4c]">kat@loganfirm.com</a>
+              Phone: <a href={telHref} className="underline hover:text-[#2c3b4c]">{company.phone}</a><br />
+              Email: <a href={`mailto:${company.email}`} className="underline hover:text-[#2c3b4c]">{company.email}</a>
             </p>
             <iframe
-              title="Logan Law Firm Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.688821548627!2d-92.016476!3d30.224089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86249cc5a0ffce65%3A0x3bcd3da8d42d7b5e!2s700%20Jefferson%20St%2C%20Lafayette%2C%20LA%2070501!5e0!3m2!1sen!2sus!4v1707840000000!5m2!1sen!2sus"
+              title={`${company.name} Location`}
+              src={company.map_embed_url}
               width="100%"
               height="250"
               allowFullScreen=""

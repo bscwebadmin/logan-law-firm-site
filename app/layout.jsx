@@ -1,8 +1,9 @@
 import "../styles/globals.css";
+import company from "../data/company.json";
 
 export const metadata = {
-  title: "Logan Law Firm, LLC",
-  description: "Louisiana Probate, Succession & Estate Litigation",
+  title: company.name,
+  description: company.tagline,
 };
 
 export default function RootLayout({ children }) {

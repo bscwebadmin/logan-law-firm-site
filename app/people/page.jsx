@@ -1,7 +1,8 @@
 // app/contact/page.jsx
 import Link from "next/link";
-import Header from "../components/Header"; 
+import Header from "../components/Header";
 import Footer from "../components/Footer";
+import company from "../../data/company.json";
 
 
 export const metadata = {
@@ -48,7 +49,7 @@ export default function PeoplePage() {
                 Gregory J. Logan
               </h2>
               <a
-                href="mailto:kat@loganfirm.com"
+                href={`mailto:${company.email}`}
                 className="inline-block bg-[#27466b] text-white px-5 py-2 rounded hover:opacity-90 transition"
               >
                 Email Me
@@ -138,7 +139,7 @@ export default function PeoplePage() {
                 Gregory Jesse Logan, Jr.
               </h2>
               <a
-                href="mailto:kat@loganfirm.com"
+                href={`mailto:${company.email}`}
                 className="inline-block bg-[#27466b] text-white px-5 py-2 rounded hover:opacity-90 transition"
               >
                 Email Me
